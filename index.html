@@ -937,7 +937,7 @@
 
     <!-- Navigation -->
     <nav id="main-nav">
-        <div class="nav-logo">민소영<span> · Portfolio</span></div>
+        <div class="nav-logo">민소영<span> | PORTFOLIO</span></div>
         <ul class="nav-links">
             <li><a href="#home">HOME</a></li>
             <li><a href="#skills">SKILLS</a></li>
@@ -1206,7 +1206,7 @@
                             <span class="skill-tag">Midjourney</span>
                             <span class="skill-tag">Kling 3.0</span>
                             <span class="skill-tag">Veo 3</span>
-                            <span class="skill-tag">Suno</span>
+                            <span class="skill-tag">SUNO</span>
                             <span class="skill-tag">ElevenLabs</span>
                         </div>
                         <a href="https://youtu.be/_wKqKD7ps34" target="_blank" class="project-saved-link"
@@ -1230,7 +1230,7 @@
                     <div class="project-url-area">
                         <div class="skill-tags" style="margin-top:0;">
                             <span class="skill-tag">ChatGPT</span>
-                            <span class="skill-tag">Suno</span>
+                            <span class="skill-tag">SUNO</span>
                         </div>
                         <a href="https://youtu.be/Dl0BWzorTsY" target="_blank" class="project-saved-link"
                             style="margin-top:12px; display:inline-flex;">▶ 영상 보기</a>
@@ -1297,15 +1297,12 @@
         </div>
         <div class="contact-wrapper fade-in">
             <div class="contact-card">
-                <form class="contact-form fade-in" action="https://formsubmit.co/soyoungmin512@gmail.com" method="POST">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_subject" value="[포트폴리오] 새로운 문의/협업 제안이 도착했습니다">
-
-                    <input type="email" name="Reply-Email" class="contact-input" placeholder="답장 받으실 이메일 주소" required>
-                    <textarea name="Message" class="contact-textarea" placeholder="문의 사항이나 협업 제안을 남겨주세요"
+                <form class="contact-form fade-in" onsubmit="sendMail(event)">
+                    <input type="email" id="replyEmail" class="contact-input" placeholder="답장 받으실 이메일 주소" required>
+                    <textarea id="mailBody" class="contact-textarea" placeholder="문의 사항이나 협업 제안을 남겨주세요"
                         required></textarea>
 
-                    <button type="submit" class="contact-submit">메시지 보내기 🚀</button>
+                    <button type="submit" class="contact-submit">메일 앱 열기 🚀</button>
                 </form>
             </div>
         </div>
@@ -1317,6 +1314,18 @@
     </footer>
 
     <script>
+        // Mailto form handling
+        function sendMail(e) {
+            e.preventDefault();
+            const replyEmail = document.getElementById('replyEmail').value;
+            const bodyInput = document.getElementById('mailBody').value;
+
+            const subject = encodeURIComponent("[포트폴리오 문의] 새로운 협업 제안이 도착했습니다");
+            const body = encodeURIComponent(`답장 받으실 이메일 주소: ${replyEmail}\n\n${bodyInput}`);
+
+            window.location.href = `mailto:soyoungmin512@gmail.com?subject=${subject}&body=${body}`;
+        }
+
         // Scroll fade-in
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
