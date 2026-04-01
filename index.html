@@ -807,6 +807,57 @@
             box-shadow: var(--shadow-sm);
         }
 
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            text-align: left;
+        }
+
+        .contact-input,
+        .contact-textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            font-size: 0.95rem;
+            font-family: inherit;
+            color: var(--text-primary);
+            transition: all 0.25s;
+        }
+
+        .contact-input:focus,
+        .contact-textarea:focus {
+            outline: none;
+            border-color: #2049ee;
+            box-shadow: 0 0 0 3px rgba(32, 73, 238, 0.1);
+        }
+
+        .contact-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-submit {
+            background: #2049ee;
+            color: #fff;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .contact-submit:hover {
+            background: #1a3ecc;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
         /* ===== FOOTER ===== */
         footer {
             text-align: center;
@@ -1246,13 +1297,16 @@
         </div>
         <div class="contact-wrapper fade-in">
             <div class="contact-card">
-                <p style="color:var(--text-secondary); margin-bottom:10px;">언제든 편하게 연락주세요 ✉️</p>
-                <p class="contact-email">soyoungmin512@gmail.com</p>
-                <div class="contact-links">
-                    <a href="https://github.com" class="contact-link" target="_blank">🐙 GitHub</a>
-                    <a href="https://linkedin.com" class="contact-link" target="_blank">💼 LinkedIn</a>
-                    <a href="https://www.youtube.com" class="contact-link" target="_blank">▶ YouTube</a>
-                </div>
+                <form class="contact-form fade-in" action="https://formsubmit.co/soyoungmin512@gmail.com" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="[포트폴리오] 새로운 문의/협업 제안이 도착했습니다">
+
+                    <input type="email" name="Reply-Email" class="contact-input" placeholder="답장 받으실 이메일 주소" required>
+                    <textarea name="Message" class="contact-textarea" placeholder="문의 사항이나 협업 제안을 남겨주세요"
+                        required></textarea>
+
+                    <button type="submit" class="contact-submit">메시지 보내기 🚀</button>
+                </form>
             </div>
         </div>
     </section>
