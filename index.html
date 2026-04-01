@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="크리에이티브 포트폴리오 - 디자인과 기술의 만남">
-    <title>포트폴리오 | Creative Developer</title>
+    <meta name="description" content="민소영 포트폴리오 - AI 기반 영상 편집자 | Adobe 전문가 | JTBC·MBC 경력">
+    <title>민소영 포트폴리오 | AI 기반 영상 편집자</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
-        /* ===== Reset & Base ===== */
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: rgba(255, 255, 255, 0.03);
-            --text-primary: #f0f0f5;
-            --text-secondary: #8888a0;
-            --text-muted: #55556a;
-            --accent-1: #6c5ce7;
-            --accent-2: #a29bfe;
-            --accent-3: #fd79a8;
-            --accent-4: #00cec9;
-            --gradient-1: linear-gradient(135deg, #6c5ce7, #a29bfe, #fd79a8);
-            --gradient-2: linear-gradient(135deg, #00cec9, #6c5ce7);
-            --border-color: rgba(255, 255, 255, 0.06);
-            --glass-bg: rgba(255, 255, 255, 0.04);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --bg-primary: #ffffff;
+            --bg-secondary: #f7f7f7;
+            --bg-card: #ffffff;
+            --text-primary: #111111;
+            --text-secondary: #555555;
+            --text-muted: #999999;
+            --accent: #2049ee;
+            --border: rgba(0, 0, 0, 0.09);
+            --border-strong: rgba(0, 0, 0, 0.18);
+            --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.09);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
         }
 
         html {
@@ -40,91 +41,40 @@
 
         body {
             font-family: 'Inter', 'Noto Sans KR', -apple-system, sans-serif;
-            background-color: var(--bg-primary);
+            background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.7;
             overflow-x: hidden;
         }
 
-        /* ===== Animated Background ===== */
-        .bg-gradient-orbs {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.15;
-            animation: floatOrb 20s ease-in-out infinite;
-        }
-
-        .orb-1 {
-            width: 600px;
-            height: 600px;
-            background: var(--accent-1);
-            top: -200px;
-            right: -100px;
-            animation-delay: 0s;
-        }
-
-        .orb-2 {
-            width: 400px;
-            height: 400px;
-            background: var(--accent-3);
-            bottom: -100px;
-            left: -100px;
-            animation-delay: -7s;
-        }
-
-        .orb-3 {
-            width: 300px;
-            height: 300px;
-            background: var(--accent-4);
-            top: 50%;
-            left: 50%;
-            animation-delay: -14s;
-        }
-
-        @keyframes floatOrb {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(50px, -80px) scale(1.1); }
-            50% { transform: translate(-30px, 60px) scale(0.95); }
-            75% { transform: translate(70px, 30px) scale(1.05); }
-        }
-
-        /* ===== Navigation ===== */
+        /* ===== NAV ===== */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 20px 40px;
+            padding: 18px 48px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            backdrop-filter: blur(20px);
-            background: rgba(10, 10, 15, 0.7);
-            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            background: rgba(255, 255, 255, 0.88);
+            border-bottom: 1px solid var(--border);
             transition: all 0.3s ease;
         }
 
         .nav-logo {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 800;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-primary);
             letter-spacing: -0.5px;
+        }
+
+        .nav-logo span {
+            color: var(--text-muted);
+            font-weight: 400;
         }
 
         .nav-links {
@@ -136,20 +86,20 @@
         .nav-links a {
             text-decoration: none;
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.875rem;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: color 0.3s;
             position: relative;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -4px;
+            bottom: -3px;
             left: 0;
             width: 0;
-            height: 2px;
-            background: var(--gradient-1);
+            height: 1.5px;
+            background: #2049ee;
             transition: width 0.3s ease;
         }
 
@@ -161,93 +111,130 @@
             width: 100%;
         }
 
-        /* ===== Content Wrapper ===== */
-        .content {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ===== Hero Section ===== */
+        /* ===== HERO ===== */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 120px 40px 80px;
+            padding: 140px 48px 100px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-content {
-            max-width: 800px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0, 0, 0, 0.03) 0%, transparent 70%);
+            pointer-events: none;
         }
 
-        .hero-badge {
+        .hero-eyebrow {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 20px;
+            padding: 6px 18px;
             border-radius: 100px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            font-size: 0.85rem;
-            color: var(--accent-2);
-            margin-bottom: 32px;
-            animation: fadeInUp 0.8s ease;
+            border: 1px solid var(--border-strong);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 28px;
+            animation: fadeInUp 0.7s ease both;
         }
 
-        .hero-badge .dot {
-            width: 8px;
-            height: 8px;
+        .hero-eyebrow .dot {
+            width: 7px;
+            height: 7px;
             border-radius: 50%;
-            background: var(--accent-4);
-            animation: pulse 2s ease-in-out infinite;
+            background: var(--text-primary);
+            animation: blink 2s ease-in-out infinite;
+            background: #2049ee;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.8); }
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.2;
+            }
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2.8rem, 6.5vw, 5rem);
             font-weight: 900;
-            line-height: 1.1;
-            letter-spacing: -2px;
+            line-height: 1.05;
+            letter-spacing: -3px;
             margin-bottom: 24px;
-            animation: fadeInUp 0.8s ease 0.1s both;
+            animation: fadeInUp 0.7s ease 0.1s both;
         }
 
-        .hero h1 .gradient-text {
-            background: var(--gradient-1);
+        .hero h1 em {
+            font-style: normal;
+            background: linear-gradient(135deg, #111 0%, #888 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .hero p {
-            font-size: 1.15rem;
+        .hero-sub {
+            font-size: 1.1rem;
             color: var(--text-secondary);
             max-width: 560px;
             margin: 0 auto 40px;
-            line-height: 1.8;
-            animation: fadeInUp 0.8s ease 0.2s both;
+            line-height: 1.9;
+            animation: fadeInUp 0.7s ease 0.2s both;
+        }
+
+        .hero-tools {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 44px;
+            animation: fadeInUp 0.7s ease 0.25s both;
+        }
+
+        .tool-badge {
+            padding: 5px 14px;
+            border-radius: 6px;
+            border: 1px solid var(--border-strong);
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+            transition: all 0.25s;
+        }
+
+        .tool-badge:hover {
+            background: #2049ee;
+            color: #fff;
+            border-color: #2049ee;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 16px;
+            gap: 14px;
             justify-content: center;
             flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.3s both;
+            animation: fadeInUp 0.7s ease 0.3s both;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 14px 32px;
-            border-radius: 12px;
-            font-size: 0.95rem;
+            padding: 13px 30px;
+            border-radius: 10px;
+            font-size: 0.9rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -257,30 +244,31 @@
         }
 
         .btn-primary {
-            background: var(--gradient-1);
-            color: white;
-            box-shadow: 0 4px 20px rgba(108, 92, 231, 0.3);
+            background: #2049ee;
+            color: #fff;
+            box-shadow: var(--shadow-sm);
         }
 
         .btn-primary:hover {
+            background: #1a3ecc;
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(108, 92, 231, 0.4);
+            box-shadow: var(--shadow-md);
         }
 
         .btn-secondary {
-            background: var(--glass-bg);
+            background: transparent;
             color: var(--text-primary);
-            border: 1px solid var(--glass-border);
+            border: 1.5px solid var(--border-strong);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.08);
+            background: var(--bg-secondary);
             transform: translateY(-2px);
         }
 
-        /* ===== Section Common ===== */
+        /* ===== SECTIONS ===== */
         section {
-            padding: 100px 40px;
+            padding: 100px 48px;
         }
 
         .section-header {
@@ -290,43 +278,49 @@
 
         .section-label {
             display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-size: 0.72rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--accent-2);
-            margin-bottom: 16px;
+            letter-spacing: 4px;
+            color: #2049ee;
+            margin-bottom: 14px;
         }
 
         .section-title {
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
             font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 16px;
+            letter-spacing: -1.5px;
+            margin-bottom: 14px;
         }
 
         .section-desc {
             color: var(--text-secondary);
-            font-size: 1.05rem;
-            max-width: 500px;
+            font-size: 1rem;
+            max-width: 480px;
             margin: 0 auto;
         }
 
-        /* ===== Skills Section ===== */
+        /* ===== SKILLS ===== */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            max-width: 1100px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 900px;
             margin: 0 auto;
+        }
+
+        @media (max-width: 640px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .skill-card {
             background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 36px 32px;
-            transition: all 0.4s ease;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 32px 28px;
+            transition: all 0.35s ease;
             position: relative;
             overflow: hidden;
         }
@@ -338,15 +332,15 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: var(--gradient-1);
+            background: #2049ee;
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.35s;
         }
 
         .skill-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(108, 92, 231, 0.3);
-            background: rgba(255, 255, 255, 0.05);
+            box-shadow: var(--shadow-md);
+            border-color: var(--border-strong);
         }
 
         .skill-card:hover::before {
@@ -354,219 +348,326 @@
         }
 
         .skill-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
         }
 
-        .skill-icon.purple { background: rgba(108, 92, 231, 0.15); }
-        .skill-icon.pink { background: rgba(253, 121, 168, 0.15); }
-        .skill-icon.teal { background: rgba(0, 206, 201, 0.15); }
-
         .skill-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .skill-card p {
             color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.7;
+            font-size: 0.875rem;
+            line-height: 1.75;
         }
 
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 20px;
+            gap: 7px;
+            margin-top: 18px;
         }
 
         .skill-tag {
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            background: rgba(108, 92, 231, 0.1);
-            color: var(--accent-2);
-            border: 1px solid rgba(108, 92, 231, 0.15);
+            padding: 3px 11px;
+            border-radius: 5px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
         }
 
-        /* ===== Projects Section ===== */
+
+        /* ===== PROJECTS ===== */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 28px;
+            gap: 24px;
             max-width: 1100px;
             margin: 0 auto;
         }
 
         .project-card {
-            border-radius: 20px;
+            border-radius: 18px;
             overflow: hidden;
             background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            transition: all 0.4s ease;
+            border: 1px solid var(--border);
+            transition: all 0.35s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(108, 92, 231, 0.3);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--border-strong);
         }
 
-        .project-thumbnail {
+        .project-thumb {
             width: 100%;
-            height: 220px;
+            height: 200px;
             position: relative;
             overflow: hidden;
-        }
-
-        .project-thumbnail-bg {
-            width: 100%;
-            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
         }
 
-        .thumb-1 { background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%); }
-        .thumb-2 { background: linear-gradient(135deg, #fd79a8 0%, #e17055 100%); }
-        .thumb-3 { background: linear-gradient(135deg, #00cec9 0%, #55efc4 100%); }
+        .thumb-dark-1 {
+            background: linear-gradient(135deg, #111 0%, #333 100%);
+        }
+
+        .thumb-dark-2 {
+            background: linear-gradient(135deg, #222 0%, #555 100%);
+        }
+
+        .thumb-dark-3 {
+            background: linear-gradient(135deg, #1a1a1a 0%, #444 100%);
+        }
+
+        .thumb-dark-4 {
+            background: linear-gradient(135deg, #0a0a0a 0%, #2a2a2a 100%);
+        }
+
+        .project-thumb-icon {
+            font-size: 2.8rem;
+        }
+
+        /* VIDEO URL overlay */
+        .project-video-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-video-overlay {
+            opacity: 1;
+        }
+
+        .play-btn {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+        }
 
         .project-info {
-            padding: 28px;
+            padding: 24px;
+        }
+
+        .project-category {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 8px;
         }
 
         .project-info h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 8px;
         }
 
         .project-info p {
             color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 20px;
+            font-size: 0.875rem;
+            margin-bottom: 18px;
         }
 
-        .project-link {
+        /* Video URL input area */
+        .project-url-area {
+            border-top: 1px solid var(--border);
+            padding-top: 16px;
+        }
+
+        .project-url-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .project-url-input-wrap {
+            display: flex;
+            gap: 8px;
+        }
+
+        .project-url-input {
+            flex: 1;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            outline: none;
+            font-size: 0.8rem;
+            font-family: inherit;
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+            transition: border 0.2s;
+        }
+
+        .project-url-input:focus {
+            border-color: var(--border-strong);
+            background: var(--bg-card);
+        }
+
+        .project-url-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .project-url-save {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: none;
+            background: var(--text-primary);
+            color: white;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .project-url-save:hover {
+            background: #333;
+        }
+
+        .project-saved-link {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            color: var(--accent-2);
-            font-size: 0.85rem;
+            color: var(--text-primary);
+            font-size: 0.8rem;
             font-weight: 600;
             text-decoration: none;
-            transition: gap 0.3s ease;
+            padding: 7px 14px;
+            border: 1px solid var(--border-strong);
+            border-radius: 8px;
+            transition: all 0.2s;
         }
 
-        .project-link:hover {
-            gap: 12px;
+        .project-saved-link:hover {
+            background: #2049ee;
+            color: white;
         }
 
-        /* ===== Stats Section ===== */
-        .stats-section {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
+        .project-clear-btn {
+            padding: 7px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
+        .project-clear-btn:hover {
+            border-color: var(--border-strong);
+            color: var(--text-primary);
         }
 
-        .stat-item h3 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 900;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 8px;
-        }
 
-        .stat-item p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* ===== Contact Section ===== */
+        /* ===== CONTACT ===== */
         .contact-wrapper {
-            max-width: 600px;
+            max-width: 580px;
             margin: 0 auto;
             text-align: center;
         }
 
         .contact-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
             border-radius: 24px;
             padding: 48px 40px;
-            backdrop-filter: blur(10px);
+        }
+
+        .contact-card p {
+            margin-bottom: 10px;
+        }
+
+        .contact-email {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .contact-links {
             display: flex;
             justify-content: center;
-            gap: 16px;
-            margin-top: 32px;
+            gap: 12px;
+            margin-top: 28px;
             flex-wrap: wrap;
         }
 
         .contact-link {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            border-radius: 12px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
+            gap: 7px;
+            padding: 10px 22px;
+            border-radius: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
             color: var(--text-primary);
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.25s;
         }
 
         .contact-link:hover {
-            background: rgba(108, 92, 231, 0.15);
-            border-color: rgba(108, 92, 231, 0.3);
+            background: #2049ee;
+            color: white;
             transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
         }
 
-        /* ===== Footer ===== */
+        /* ===== FOOTER ===== */
         footer {
             text-align: center;
-            padding: 40px;
+            padding: 36px;
             color: var(--text-muted);
-            font-size: 0.85rem;
-            border-top: 1px solid var(--border-color);
+            font-size: 0.82rem;
+            border-top: 1px solid var(--border);
         }
 
-        footer a {
-            color: var(--accent-2);
-            text-decoration: none;
-        }
-
-        /* ===== Animations ===== */
+        /* ===== ANIMATIONS ===== */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(28px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -575,8 +676,8 @@
 
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+            transform: translateY(28px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
         .fade-in.visible {
@@ -584,10 +685,10 @@
             transform: translateY(0);
         }
 
-        /* ===== Responsive ===== */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             nav {
-                padding: 16px 20px;
+                padding: 15px 20px;
             }
 
             .nav-links {
@@ -595,15 +696,15 @@
             }
 
             section {
-                padding: 60px 20px;
+                padding: 64px 20px;
             }
 
             .hero {
-                padding: 100px 20px 60px;
+                padding: 110px 20px 70px;
             }
 
             .hero h1 {
-                letter-spacing: -1px;
+                letter-spacing: -1.5px;
             }
 
             .projects-grid {
@@ -611,222 +712,295 @@
             }
 
             .contact-card {
-                padding: 32px 24px;
+                padding: 32px 22px;
             }
 
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-            }
         }
     </style>
 </head>
+
 <body>
-    <!-- Animated Background Orbs -->
-    <div class="bg-gradient-orbs">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-    </div>
 
     <!-- Navigation -->
-    <nav>
-        <div class="nav-logo">Portfolio.</div>
+    <nav id="main-nav">
+        <div class="nav-logo">민소영<span> · Portfolio</span></div>
         <ul class="nav-links">
             <li><a href="#home">홈</a></li>
-            <li><a href="#skills">스킬</a></li>
+            <li><a href="#skills">역량</a></li>
+
             <li><a href="#projects">프로젝트</a></li>
             <li><a href="#contact">연락처</a></li>
         </ul>
     </nav>
 
-    <div class="content">
-        <!-- Hero Section -->
-        <section class="hero" id="home">
-            <div class="hero-content">
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-eyebrow">
+                <span class="dot"></span> AI 기반 영상 편집자
+            </div>
+            <h1>안녕하세요,<br><em>영상으로 말하는</em><br><span
+                    style="-webkit-text-fill-color:#2049ee; color:#2049ee;">민소영</span>입니다</h1>
+            <p class="hero-sub">
+                아카이브 운영부터 AI 영상 제작까지,<br>
+                콘텐츠의 기획·편집·관리를 아우르는 영상 크리에이터입니다.
+            </p>
+            <div class="hero-tools">
+                <span class="tool-badge">Adobe Premiere Pro</span>
+                <span class="tool-badge">After Effects</span>
+                <span class="tool-badge">Photoshop</span>
+                <span class="tool-badge">Illustrator</span>
+                <span class="tool-badge">AI 영상 제작</span>
+            </div>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">작업물 보기 ↓</a>
 
-                <h1>
-                    안녕하세요,<br>
-                    <span class="gradient-text">크리에이티브 개발자</span><br>
-                    홍길동입니다
-                </h1>
-                <p>
-                    디자인과 코드의 경계를 넘나들며, 사용자에게 
-                    즐거운 경험을 선사하는 웹 서비스를 만듭니다.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        프로젝트 보기 →
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <div class="section-header fade-in">
+            <span class="section-label">Core Skills</span>
+            <h2 class="section-title">핵심 역량</h2>
+            <p class="section-desc">미디어 현장에서 쌓은 실무 능력과 AI 기반 영상 기술을 결합합니다</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card fade-in">
+                <div class="skill-icon">🎬</div>
+                <h3>AI 기반 영상 제작·편집</h3>
+                <p>최신 AI 도구와 Adobe 전문 프로그램을 결합하여 고품질 영상 콘텐츠를 제작하고 편집합니다.</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Premiere Pro</span>
+                    <span class="skill-tag">After Effects</span>
+                    <span class="skill-tag">AI 영상</span>
+                </div>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-icon">🗂️</div>
+                <h3>콘텐츠 아카이브 & 운영</h3>
+                <p>콘텐츠 분류 체계 구축, 메타데이터 표준화, 파일 검수 및 운영 일정 관리 전문 역량을 보유합니다.</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">메타데이터 관리</span>
+                    <span class="skill-tag">아카이브</span>
+                    <span class="skill-tag">파일 운영</span>
+                </div>
+            </div>
+
+            <div class="skill-card fade-in">
+                <div class="skill-icon">🎨</div>
+                <h3>비주얼 디자인</h3>
+                <p>Adobe Illustrator와 Photoshop을 활용하여 영상 썸네일, 그래픽, 영상 내 자막 디자인 등을 제작합니다.</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Illustrator</span>
+                    <span class="skill-tag">Photoshop</span>
+                    <span class="skill-tag">그래픽 디자인</span>
+                </div>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-icon">📡</div>
+                <h3>방송 실시간 운영 모니터링</h3>
+                <p>뉴스·생방송 환경에서의 실시간 콘텐츠 송출 모니터링 및 파일 검수 경험을 보유하고 있습니다.</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">실시간 모니터링</span>
+                    <span class="skill-tag">품질 검수</span>
+                    <span class="skill-tag">생방송 대응</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="section-header fade-in">
+            <span class="section-label">Projects</span>
+            <h2 class="section-title">작업물</h2>
+            <p class="section-desc">AI 기반으로 직접 기획하고 제작한 영상 작업물입니다</p>
+        </div>
+        <div class="projects-grid" id="projects-grid">
+
+            <!-- 1 -->
+            <div class="project-card fade-in">
+                <div class="project-thumb thumb-dark-1">
+                    <div class="project-thumb-icon">☕</div>
+                    <a class="project-video-overlay" href="https://youtu.be/sbcor35SHz4" target="_blank">
+                        <span class="play-btn">▶</span>
                     </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        연락하기
+                </div>
+                <div class="project-info">
+                    <div class="project-category">AI-Generated · Premiere Pro</div>
+                    <h3>카페 '사영' 홍보 영상</h3>
+                    <p>AI 툴을 활용하여 카페의 분위기와 감성을 담아낸 홍보 영상입니다.</p>
+                    <div class="project-url-area">
+                        <div class="skill-tags" style="margin-top:0;">
+                            <span class="skill-tag">ChatGPT</span>
+                            <span class="skill-tag">Gemini</span>
+                            <span class="skill-tag">Kling 3.0</span>
+                            <span class="skill-tag">Veo 3</span>
+                        </div>
+                        <a href="https://youtu.be/sbcor35SHz4" target="_blank" class="project-saved-link"
+                            style="margin-top:12px; display:inline-flex;">▶ 영상 보기</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="project-card fade-in">
+                <div class="project-thumb thumb-dark-2">
+                    <div class="project-thumb-icon">🍗</div>
+                    <a class="project-video-overlay" href="https://youtu.be/_wKqKD7ps34" target="_blank">
+                        <span class="play-btn">▶</span>
                     </a>
                 </div>
+                <div class="project-info">
+                    <div class="project-category">AI-Generated · After Effects · Premiere Pro</div>
+                    <h3>'후라이드 참 잘하는 집' AI 광고 영상</h3>
+                    <p>AI 광고 영상 공모전 출품작. 기획부터 편집까지 전 과정을 AI로 제작했습니다.</p>
+                    <div class="project-url-area">
+                        <div class="skill-tags" style="margin-top:0;">
+                            <span class="skill-tag">ChatGPT</span>
+                            <span class="skill-tag">Midjourney</span>
+                            <span class="skill-tag">Kling 3.0</span>
+                            <span class="skill-tag">Veo 3</span>
+                            <span class="skill-tag">Suno</span>
+                            <span class="skill-tag">ElevenLabs</span>
+                        </div>
+                        <a href="https://youtu.be/_wKqKD7ps34" target="_blank" class="project-saved-link"
+                            style="margin-top:12px; display:inline-flex;">▶ 영상 보기</a>
+                    </div>
+                </div>
             </div>
-        </section>
 
-        <!-- Skills Section -->
-        <section id="skills">
-            <div class="section-header fade-in">
-                <span class="section-label">Skills</span>
-                <h2 class="section-title">제가 잘하는 것들</h2>
-                <p class="section-desc">다양한 기술 스택을 활용하여 완성도 높은 결과물을 만듭니다</p>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-card fade-in">
-                    <div class="skill-icon purple">🎨</div>
-                    <h3>UI/UX 디자인</h3>
-                    <p>사용자 중심의 직관적인 인터페이스를 설계하고, 시각적으로 아름다운 디자인을 구현합니다.</p>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Figma</span>
-                        <span class="skill-tag">Photoshop</span>
-                        <span class="skill-tag">Prototyping</span>
-                    </div>
+            <!-- 3 -->
+            <div class="project-card fade-in">
+                <div class="project-thumb thumb-dark-3">
+                    <div class="project-thumb-icon">🎵</div>
+                    <a class="project-video-overlay" href="https://youtu.be/Dl0BWzorTsY" target="_blank">
+                        <span class="play-btn">▶</span>
+                    </a>
                 </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon pink">💻</div>
-                    <h3>프론트엔드 개발</h3>
-                    <p>최신 웹 기술을 활용하여 반응형이고 인터랙티브한 웹 애플리케이션을 개발합니다.</p>
-                    <div class="skill-tags">
-                        <span class="skill-tag">HTML/CSS</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">React</span>
-                    </div>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon teal">🤖</div>
-                    <h3>AI 활용</h3>
-                    <p>AI 도구를 활용하여 업무 효율을 높이고, 창의적인 문제 해결 방식을 제안합니다.</p>
-                    <div class="skill-tags">
-                        <span class="skill-tag">ChatGPT</span>
-                        <span class="skill-tag">Midjourney</span>
-                        <span class="skill-tag">Automation</span>
+                <div class="project-info">
+                    <div class="project-category">AI-Generated · After Effects</div>
+                    <h3>'후라이드 참 잘하는 집' AI 광고 CM송</h3>
+                    <p>AI로 작사·작곡한 광고 CM송. 브랜드의 감성을 음악으로 표현했습니다.</p>
+                    <div class="project-url-area">
+                        <div class="skill-tags" style="margin-top:0;">
+                            <span class="skill-tag">ChatGPT</span>
+                            <span class="skill-tag">Suno</span>
+                        </div>
+                        <a href="https://youtu.be/Dl0BWzorTsY" target="_blank" class="project-saved-link"
+                            style="margin-top:12px; display:inline-flex;">▶ 영상 보기</a>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Stats Section -->
-        <section class="stats-section">
-            <div class="stats-grid fade-in">
-                <div class="stat-item">
-                    <h3>3+</h3>
-                    <p>프로젝트 완료</p>
+            <!-- 4 -->
+            <div class="project-card fade-in">
+                <div class="project-thumb thumb-dark-4">
+                    <div class="project-thumb-icon">🎞️</div>
+                    <a class="project-video-overlay" href="https://youtu.be/aFmU6Ibd_-c" target="_blank">
+                        <span class="play-btn">▶</span>
+                    </a>
                 </div>
-                <div class="stat-item">
-                    <h3>100%</h3>
-                    <p>열정</p>
-                </div>
-                <div class="stat-item">
-                    <h3>∞</h3>
-                    <p>성장 가능성</p>
+                <div class="project-info">
+                    <div class="project-category">After Effects · Premiere Pro</div>
+                    <h3>AI 광고 영상 공모전 작업 과정</h3>
+                    <p>AI 광고 영상 제작의 기획부터 완성까지 전체 작업 과정을 담은 메이킹 영상입니다.</p>
+                    <div class="project-url-area">
+                        <div class="skill-tags" style="margin-top:0;">
+                            <span class="skill-tag">After Effects</span>
+                            <span class="skill-tag">Premiere Pro</span>
+                        </div>
+                        <a href="https://youtu.be/HpPe6X4oqS0" target="_blank" class="project-saved-link"
+                            style="margin-top:12px; display:inline-flex;">▶ 영상 보기</a>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Projects Section -->
-        <section id="projects">
-            <div class="section-header fade-in">
-                <span class="section-label">Projects</span>
-                <h2 class="section-title">최근 프로젝트</h2>
-                <p class="section-desc">직접 기획하고 개발한 프로젝트들입니다</p>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card fade-in">
-                    <div class="project-thumbnail">
-                        <div class="project-thumbnail-bg thumb-1">🛒</div>
-                    </div>
-                    <div class="project-info">
-                        <h3>쇼핑몰 랜딩페이지</h3>
-                        <p>반응형 디자인으로 제작한 온라인 쇼핑몰 메인 페이지</p>
-                        <a href="#" class="project-link">자세히 보기 →</a>
-                    </div>
-                </div>
-                <div class="project-card fade-in">
-                    <div class="project-thumbnail">
-                        <div class="project-thumbnail-bg thumb-2">📊</div>
-                    </div>
-                    <div class="project-info">
-                        <h3>데이터 대시보드</h3>
-                        <p>실시간 데이터를 시각화하는 인터랙티브 대시보드</p>
-                        <a href="#" class="project-link">자세히 보기 →</a>
-                    </div>
-                </div>
-                <div class="project-card fade-in">
-                    <div class="project-thumbnail">
-                        <div class="project-thumbnail-bg thumb-3">💬</div>
-                    </div>
-                    <div class="project-info">
-                        <h3>AI 챗봇 서비스</h3>
-                        <p>AI를 활용한 고객 상담 자동화 챗봇 웹앱</p>
-                        <a href="#" class="project-link">자세히 보기 →</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact">
-            <div class="section-header fade-in">
-                <span class="section-label">Contact</span>
-                <h2 class="section-title">함께 일해요</h2>
-                <p class="section-desc">새로운 기회와 협업을 기다리고 있습니다</p>
-            </div>
-            <div class="contact-wrapper fade-in">
-                <div class="contact-card">
-                    <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 8px;">
-                        언제든 편하게 연락주세요 ✉️
-                    </p>
-                    <p style="font-size: 1.4rem; font-weight: 700;">
-                        hello@example.com
-                    </p>
-                    <div class="contact-links">
-                        <a href="https://github.com" class="contact-link" target="_blank">
-                            🐙 GitHub
-                        </a>
-                        <a href="https://linkedin.com" class="contact-link" target="_blank">
-                            💼 LinkedIn
-                        </a>
-                        <a href="https://instagram.com" class="contact-link" target="_blank">
-                            📸 Instagram
-                        </a>
-                    </div>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="section-header fade-in">
+            <span class="section-label">Contact</span>
+            <h2 class="section-title">함께 작업해요</h2>
+            <p class="section-desc">새로운 프로젝트와 협업 제안을 기다리고 있습니다</p>
+        </div>
+        <div class="contact-wrapper fade-in">
+            <div class="contact-card">
+                <p style="color:var(--text-secondary); margin-bottom:10px;">언제든 편하게 연락주세요 ✉️</p>
+                <p class="contact-email">soyoungmin512@gmail.com</p>
+                <div class="contact-links">
+                    <a href="https://github.com" class="contact-link" target="_blank">🐙 GitHub</a>
+                    <a href="https://linkedin.com" class="contact-link" target="_blank">💼 LinkedIn</a>
+                    <a href="https://www.youtube.com" class="contact-link" target="_blank">▶ YouTube</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Footer -->
-        <footer>
-            <p>© 2026 홍길동 · Built with ❤️ and <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
-        </footer>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 민소영 · AI 기반 영상 편집자 포트폴리오</p>
+    </footer>
 
     <script>
-        // ===== Scroll Fade-in Animation =====
+        // Scroll fade-in
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // ===== Smooth Nav Background on Scroll =====
+        // Nav background on scroll
         window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.background = 'rgba(10, 10, 15, 0.9)';
-            } else {
-                nav.style.background = 'rgba(10, 10, 15, 0.7)';
-            }
+            const nav = document.getElementById('main-nav');
+            nav.style.background = window.scrollY > 50 ? 'rgba(255,255,255,0.96)' : 'rgba(255,255,255,0.88)';
         });
+
+        // Load saved URLs from localStorage
+        [0, 1, 2].forEach(i => loadUrl(i));
+
+        function saveUrl(i) {
+            const input = document.getElementById('url-input-' + i);
+            const url = input.value.trim();
+            if (!url) { alert('URL을 입력해주세요.'); return; }
+            try { new URL(url); } catch { alert('유효한 URL 형식을 입력해주세요.\n예) https://youtube.com/watch?v=...'); return; }
+            localStorage.setItem('project-url-' + i, url);
+            renderSaved(i, url);
+        }
+
+        function clearUrl(i) {
+            localStorage.removeItem('project-url-' + i);
+            document.getElementById('url-input-' + i).value = '';
+            document.getElementById('url-display-' + i).style.display = 'flex';
+            document.getElementById('url-saved-' + i).style.display = 'none';
+            document.getElementById('overlay-' + i).href = '#';
+        }
+
+        function loadUrl(i) {
+            const url = localStorage.getItem('project-url-' + i);
+            if (url) renderSaved(i, url);
+        }
+
+        function renderSaved(i, url) {
+            const overlay = document.getElementById('overlay-' + i);
+            overlay.href = url;
+            document.getElementById('url-display-' + i).style.display = 'none';
+            const savedEl = document.getElementById('url-saved-' + i);
+            savedEl.style.display = 'flex';
+            savedEl.style.gap = '8px';
+            savedEl.style.alignItems = 'center';
+            savedEl.innerHTML = `
+                <a href="${url}" target="_blank" class="project-saved-link">▶ 영상 보기</a>
+                <button class="project-clear-btn" onclick="clearUrl(${i})">✕ 삭제</button>
+            `;
+        }
     </script>
 </body>
+
 </html>
