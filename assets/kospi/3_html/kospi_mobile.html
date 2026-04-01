@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KOSPI 2026 Mobile Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f1115;
+            --card: #1c1f26;
+            --card-light: #252a33;
+            --accent: #3b82f6;
+            --accent-soft: rgba(59, 130, 246, 0.1);
+            --up: #f87171;
+            --down: #60a5fa;
+            --text-main: #ffffff;
+            --text-sub: #9ea4b0;
+            --text-mute: #64748b;
+            --border: rgba(255, 255, 255, 0.08);
+            --url-bg: #13151a;
+            --url-text: #a5b4fc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Pretendard', sans-serif;
+            padding: 20px;
+            padding-bottom: 100px;
+            min-height: 100vh;
+        }
+
+
+
+        /* Dashboard Content */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #3b82f6, #818cf8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .date-trigger {
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            padding: 10px 18px;
+            border-radius: 24px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-sub);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, #1e293b, #0f1115);
+            border: 1px solid var(--border);
+            padding: 32px 24px;
+            border-radius: 32px;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.1), transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-title {
+            font-size: 1.75rem;
+            line-height: 1.25;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+        }
+
+        .grid-indices {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .index-card {
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 24px;
+            text-align: center;
+        }
+
+        .index-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-mute);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .index-value {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .index-diff {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .up {
+            color: var(--up);
+        }
+
+        .down {
+            color: var(--down);
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            padding-left: 4px;
+        }
+
+        .section-tag {
+            width: 4px;
+            height: 16px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .card {
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            padding: 24px;
+            border-radius: 28px;
+        }
+
+        .insight-desc {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .insight-quote {
+            padding-left: 16px;
+            border-left: 3px solid var(--accent);
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            opacity: 0.9;
+        }
+
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .news-item {
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .news-item:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .badge-market {
+            background-color: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+        }
+
+        .badge-domestic {
+            background-color: rgba(167, 139, 250, 0.15);
+            color: #a78bfa;
+        }
+
+        .badge-global {
+            background-color: rgba(244, 114, 182, 0.15);
+            color: #f472b6;
+        }
+
+        .news-btn-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .news-desc {
+            font-size: 0.925rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+        }
+
+        .news-impact {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Bottom Sheet Calendar */
+        #sheet-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            backdrop-filter: blur(4px);
+        }
+
+        #sheet-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #bottom-sheet {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--card);
+            border-top: 1px solid var(--border);
+            border-radius: 40px 40px 0 0;
+            padding: 32px 24px;
+            z-index: 1001;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        #bottom-sheet.active {
+            transform: translateY(0);
+        }
+
+        .drag-handle {
+            width: 48px;
+            height: 5px;
+            background-color: var(--border);
+            border-radius: 3px;
+            margin: 0 auto 28px;
+        }
+
+        .sheet-title {
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+
+        .day-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-mute);
+            padding-bottom: 12px;
+            text-align: center;
+        }
+
+        .day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            font-size: 1rem;
+            color: var(--text-mute);
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .day.has-data {
+            background-color: var(--card-light);
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .day.selected {
+            background-color: var(--accent) !important;
+            color: white !important;
+            box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+        }
+
+        .day.empty {
+            visibility: hidden;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding: 0 10px;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            color: var(--text-main);
+            padding: 8px 16px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: background 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: var(--card-light);
+        }
+
+        @media (max-width: 768px) {
+            #splash-screen {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Splash Screen Removed -->
+
+    <header>
+        <div class="logo">KOSPI 2026</div>
+        <div class="date-trigger" id="date-trigger">
+            <span id="current-date">2026.01.23</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </div>
+    </header>
+
+    <div class="hero-banner">
+        <h1 class="hero-title" id="h-title">로드 중...</h1>
+        <p class="hero-subtitle" id="h-sub">데이터를 불러오고 있습니다.</p>
+    </div>
+
+    <div class="grid-indices">
+        <div class="index-card">
+            <div class="index-label">KOSPI</div>
+            <div class="index-value" id="k-val">0,000.00</div>
+            <div class="index-diff" id="k-diff">--</div>
+        </div>
+        <div class="index-card">
+            <div class="index-label">KOSDAQ</div>
+            <div class="index-value" id="q-val">0,000.00</div>
+            <div class="index-diff" id="q-diff">--</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <div class="section-tag"></div>
+            <div class="section-title">Market Insight</div>
+        </div>
+        <div class="card">
+            <p class="insight-desc" id="i-desc">로딩 중...</p>
+            <div class="insight-quote" id="i-quote">잠시만 기다려 주세요.</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <div class="section-tag" style="background-color: #a78bfa;"></div>
+            <div class="section-title">Essential News</div>
+        </div>
+        <div class="card">
+            <div class="news-list" id="news-container">
+                <!-- Data injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <div id="sheet-overlay"></div>
+    <div id="bottom-sheet">
+        <div class="drag-handle"></div>
+        <div class="calendar-header">
+            <button class="nav-btn" onclick="changeMonth(-1)">◀</button>
+            <h3 class="sheet-title" id="calendar-title" style="margin-bottom: 0;">2026년 2월</h3>
+            <button class="nav-btn" onclick="changeMonth(1)">▶</button>
+        </div>
+        <div class="calendar-grid" id="calendar-grid">
+            <!-- Days injected via JS -->
+        </div>
+    </div>
+
+    <script src="market_data.js"></script>
+    <script>
+        const trigger = document.getElementById('date-trigger');
+        const sheet = document.getElementById('bottom-sheet');
+        const overlay = document.getElementById('sheet-overlay');
+        const grid = document.getElementById('calendar-grid');
+        const calTitle = document.getElementById('calendar-title');
+
+        // State
+        let currentViewDate = new Date(); // Default to now, will update to latest data date
+
+        // Get sorted dates to find the latest
+        const sortedDates = Object.keys(marketData).sort().reverse();
+        const latestDate = sortedDates[0];
+
+        // Initialize view date to latest data
+        if (latestDate) {
+            const [y, m, d] = latestDate.split('-').map(Number);
+            currentViewDate = new Date(y, m - 1, 1);
+        }
+
+        function toggleSheet() {
+            sheet.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        trigger.onclick = toggleSheet;
+        overlay.onclick = toggleSheet;
+
+        function updateUI(date) {
+            const data = marketData[date];
+            if (!data) return;
+
+            document.getElementById('current-date').innerText = data.dateText.split(' ')[0];
+            document.getElementById('h-title').innerText = data.heroTitle;
+            document.getElementById('h-sub').innerText = data.heroSubtitle;
+            document.getElementById('k-val').innerText = data.kospi;
+            document.getElementById('k-diff').innerText = data.kospiDiff;
+            document.getElementById('k-diff').className = 'index-diff ' + (data.kospiDiff.includes('▲') ? 'up' : (data.kospiDiff.includes('▼') ? 'down' : ''));
+
+            const qVal = document.getElementById('q-val');
+            const qDiff = document.getElementById('q-diff');
+            qVal.innerText = data.kosdaq || "-";
+            qDiff.innerText = data.kosdaqDiff || "-";
+            qDiff.className = 'index-diff ' + (data.kosdaqDiff && data.kosdaqDiff.includes('▲') ? 'up' : (data.kosdaqDiff && data.kosdaqDiff.includes('▼') ? 'down' : ''));
+
+            document.getElementById('i-desc').innerText = data.insightDesc;
+            document.getElementById('i-quote').innerText = data.insightQuote;
+
+            const nCont = document.getElementById('news-container');
+            nCont.innerHTML = '';
+            data.news.forEach(n => {
+                nCont.innerHTML += `
+                    <div class="news-item">
+                        <span class="badge badge-${n.tag.toLowerCase()}">${n.tag}</span>
+                        <div class="news-btn-title">${n.title}</div>
+                        <div class="news-desc">${n.desc}</div>
+                        ${n.impact ? `<div class="news-impact">💡 영향: ${n.impact}</div>` : ''}
+                    </div>
+                `;
+            });
+
+            // Highlight selected day if in current view
+            const selectedDayEl = document.querySelector(`.day[data-date="${date}"]`);
+            if (selectedDayEl) {
+                document.querySelectorAll('.day').forEach(d => d.classList.remove('selected'));
+                selectedDayEl.classList.add('selected');
+            }
+
+            // Close sheet if open
+            if (sheet.classList.contains('active')) toggleSheet();
+        }
+
+        function changeMonth(delta) {
+            currentViewDate.setMonth(currentViewDate.getMonth() + delta);
+            generateCalendar();
+        }
+
+        function generateCalendar() {
+            const year = currentViewDate.getFullYear();
+            const month = currentViewDate.getMonth();
+
+            calTitle.innerText = `${year}년 ${month + 1}월`;
+
+            grid.innerHTML = `
+                <div class="day-label">일</div>
+                <div class="day-label">월</div>
+                <div class="day-label">화</div>
+                <div class="day-label">수</div>
+                <div class="day-label">목</div>
+                <div class="day-label">금</div>
+                <div class="day-label">토</div>
+            `;
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            // Empty slots
+            for (let i = 0; i < firstDay; i++) {
+                const empty = document.createElement('div');
+                empty.className = 'day empty';
+                grid.appendChild(empty);
+            }
+
+            // Days
+            for (let d = 1; d <= daysInMonth; d++) {
+                const dateStr = `${year}-${(month + 1).toString().padStart(2, '0')}-${d.toString().padStart(2, '0')}`;
+                const hasData = !!marketData[dateStr];
+                const dayEl = document.createElement('div');
+                dayEl.className = `day ${hasData ? 'has-data' : ''}`;
+                dayEl.dataset.date = dateStr;
+                dayEl.innerText = d;
+
+                if (hasData) {
+                    dayEl.onclick = () => updateUI(dateStr);
+                    // Check if this is the currently displayed date
+                    const currentDateText = document.getElementById('current-date').innerText;
+                    // Provide a rough check or store selected date in variable. 
+                    // Let's rely on data matching for now or visual cue.
+                    // Ideally we compare against the currently loaded date.
+                    // But for simplicity, we just add click handler.
+                }
+
+                grid.appendChild(dayEl);
+            }
+
+            // Re-highlight if needed
+            const currentlyShownDateStr = document.getElementById('current-date').innerText.replace(/\./g, '-');
+            // The date formatting in UI is 2026.01.23, convert to 2026-01-23
+            // Wait, the UI sets '2026.01.23'.
+            // Let's refine the current date retrieval or just let user select.
+
+            // Try to highlight if the current page date matches a day in this calendar
+            // Convert '2026.02.13' to '2026-02-13'
+            // Note: dateText in marketData is "2026년 2월 13일 (금)".
+            // updateUI sets innerText to "2026년" split... wait.
+            // Line 571: data.dateText.split(' ')[0] -> "2026년" ?? 
+            // Ah, "2026년 2월 13일 (금)".split(' ')[0] would be "2026년".
+            // That seems wrong in the previous code too?
+            // Let's check market_data.js structure.
+            // "dateText": "2026년 2월 13일 (금)"
+            // Split ' ' -> ["2026년", "2월", "13일", "(금)"]
+            // The original code was: document.getElementById('current-date').innerText = data.dateText.split(' ')[0];
+            // That would just show "2026년".
+            // The HTML example showed "2026.01.23".
+            // I should probably format it nicely or just use the full string.
+            // Let's fix the date display in updateUI to be "YYYY.MM.DD" or similar if possible, or just use dateText.
+            // I will use data.dateText for now to be safe, or construct YYYY.MM.DD.
+        }
+
+        // Override updateUI to fix date display if needed, but let's stick to the replacement plan's scope
+        // I will use `data.dateText` directly for the header date to be clear.
+
+        // Redefine updateUI to be better
+        function updateUI(date) {
+            const data = marketData[date];
+            if (!data) return;
+
+            // Header Date
+            document.getElementById('current-date').innerText = date.replace(/-/g, '.');
+
+            document.getElementById('h-title').innerText = data.heroTitle;
+            document.getElementById('h-sub').innerText = data.heroSubtitle;
+            document.getElementById('k-val').innerText = data.kospi;
+            document.getElementById('k-diff').innerText = data.kospiDiff;
+            document.getElementById('k-diff').className = 'index-diff ' + (data.kospiDiff.includes('▲') ? 'up' : (data.kospiDiff.includes('▼') ? 'down' : ''));
+
+            const qVal = document.getElementById('q-val');
+            const qDiff = document.getElementById('q-diff');
+            qVal.innerText = data.kosdaq || "-";
+            qDiff.innerText = data.kosdaqDiff || "-";
+            qDiff.className = 'index-diff ' + (data.kosdaqDiff && data.kosdaqDiff.includes('▲') ? 'up' : (data.kosdaqDiff && data.kosdaqDiff.includes('▼') ? 'down' : ''));
+
+            document.getElementById('i-desc').innerText = data.insightDesc;
+            document.getElementById('i-quote').innerText = data.insightQuote;
+
+            const nCont = document.getElementById('news-container');
+            nCont.innerHTML = '';
+            data.news.forEach(n => {
+                nCont.innerHTML += `
+                    <div class="news-item">
+                        <span class="badge badge-${n.tag.toLowerCase()}">${n.tag}</span>
+                        <div class="news-btn-title">${n.title}</div>
+                        <div class="news-desc">${n.desc}</div>
+                        ${n.impact ? `<div class="news-impact">💡 영향: ${n.impact}</div>` : ''}
+                    </div>
+                `;
+            });
+
+            // Highlight in calendar
+            const selectedCell = document.querySelector(`.day[data-date="${date}"]`);
+            document.querySelectorAll('.day').forEach(d => d.classList.remove('selected'));
+            if (selectedCell) selectedCell.classList.add('selected');
+
+            if (sheet.classList.contains('active')) toggleSheet();
+        }
+
+        generateCalendar();
+        updateUI(latestDate);
+    </script>
+</body>
+
+</html>
