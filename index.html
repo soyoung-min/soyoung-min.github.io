@@ -605,6 +605,154 @@
             color: var(--text-primary);
         }
 
+
+        /* ===== CAREER TIMELINE ===== */
+        .career-section {
+            background: var(--bg-secondary);
+        }
+
+        .career-timeline {
+            max-width: 860px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .career-timeline::before {
+            content: '';
+            position: absolute;
+            left: 18px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #2049ee, rgba(32, 73, 238, 0.1));
+        }
+
+        .career-entry {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 36px;
+            position: relative;
+        }
+
+        .career-dot-wrap {
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 38px;
+        }
+
+        .career-dot {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2.5px solid #2049ee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            box-shadow: 0 0 0 4px rgba(32, 73, 238, 0.08);
+            z-index: 1;
+            flex-shrink: 0;
+        }
+
+        .career-body {
+            flex: 1;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 28px 32px;
+            transition: all 0.3s ease;
+            margin-bottom: 4px;
+        }
+
+        .career-body:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--border-strong);
+        }
+
+        .career-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .career-company {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .career-period {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 100px;
+            background: rgba(32, 73, 238, 0.07);
+            border: 1px solid rgba(32, 73, 238, 0.15);
+            color: #2049ee;
+            white-space: nowrap;
+        }
+
+        .career-dept {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 18px;
+        }
+
+        .career-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 640px) {
+            .career-cols {
+                grid-template-columns: 1fr;
+            }
+
+            .career-timeline::before {
+                left: 15px;
+            }
+        }
+
+        .career-block-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: #2049ee;
+            margin-bottom: 10px;
+        }
+
+        .career-ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .career-ul li {
+            font-size: 0.845rem;
+            color: var(--text-secondary);
+            padding-left: 14px;
+            position: relative;
+            line-height: 1.65;
+        }
+
+        .career-ul li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: #2049ee;
+            font-weight: 700;
+        }
+
         /* ===== CONTACT ===== */
         .contact-wrapper {
             max-width: 580px;
@@ -721,6 +869,15 @@
             .contact-card {
                 padding: 32px 22px;
             }
+
+            .career-body {
+                padding: 20px 18px;
+            }
+
+            .career-entry {
+                gap: 16px;
+            }
+
         }
     </style>
 </head>
@@ -731,11 +888,12 @@
     <nav id="main-nav">
         <div class="nav-logo">민소영<span> · Portfolio</span></div>
         <ul class="nav-links">
-            <li><a href="#home">홈</a></li>
-            <li><a href="#skills">역량</a></li>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#skills">SKILLS</a></li>
+            <li><a href="#career">CAREER</a></li>
 
-            <li><a href="#projects">프로젝트</a></li>
-            <li><a href="#contact">연락처</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
         </ul>
     </nav>
 
@@ -819,12 +977,138 @@
         </div>
     </section>
 
+
+    <!-- Career -->
+    <section id="career" class="career-section">
+        <div class="section-header fade-in">
+            <span class="section-label">Career</span>
+            <h2 class="section-title">경력 사항</h2>
+            <p class="section-desc">방송 미디어 현장에서 쌓아온 실무 경험들입니다</p>
+        </div>
+        <div class="career-timeline">
+
+            <!-- 1 -->
+            <div class="career-entry fade-in">
+                <div class="career-dot-wrap">
+                    <div class="career-dot">📺</div>
+                </div>
+                <div class="career-body">
+                    <div class="career-top">
+                        <div class="career-company">JTBC디스커버리 · 편성팀</div>
+                    </div>
+                    <div class="career-dept">JTBC GOLF / JTBC GOLF&amp;SPORTS 채널 아카이브 담당</div>
+                    <div class="career-cols">
+                        <div>
+                            <div class="career-block-title">주요 업무</div>
+                            <ul class="career-ul">
+                                <li>프로그램 및 스포츠 경기 영상 메타데이터 정리 및 표준화</li>
+                                <li>콘텐츠 분류 체계 재정비 및 검색 구조 개선</li>
+                                <li>편성 일정 기반 콘텐츠 입출고 및 운영 일정 관리</li>
+                                <li>외부 협력사 대응 및 콘텐츠 자료 제공</li>
+                                <li>영상 자산 관리 및 운영 프로세스 개선</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="career-block-title">성과 및 기여</div>
+                            <ul class="career-ul">
+                                <li>체계화되지 않았던 아카이브 구조를 정비하여 콘텐츠 검색 효율 향상</li>
+                                <li>메타데이터 표준화 작업을 통해 콘텐츠 접근성 및 활용도 개선</li>
+                                <li>일정 기반 운영 체계를 구축하여 콘텐츠 제공의 안정성 확보</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="career-entry fade-in">
+                <div class="career-dot-wrap">
+                    <div class="career-dot">🎬</div>
+                </div>
+                <div class="career-body">
+                    <div class="career-top">
+                        <div class="career-company">JTBC미디어텍 · 제작편집팀</div>
+                    </div>
+                    <div class="career-dept">예능·교양 프로그램 촬영본 인제스트 담당</div>
+                    <div class="career-cols">
+                        <div>
+                            <div class="career-block-title">주요 업무</div>
+                            <ul class="career-ul">
+                                <li>촬영본 인제스트 및 파일 검수</li>
+                                <li>촬영본 입고 스케줄 및 데이터 관리</li>
+                                <li>생방송 백상예술대상 녹화 보조</li>
+                                <li>영상 포맷 관리 및 운영 지원</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="career-block-title">기여</div>
+                            <ul class="career-ul">
+                                <li>제작 일정에 차질이 없도록 콘텐츠 흐름 관리</li>
+                                <li>긴박한 생방송 환경에서도 정확성과 속도를 유지하며 운영 안정성 확보</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="career-entry fade-in">
+                <div class="career-dot-wrap">
+                    <div class="career-dot">📡</div>
+                </div>
+                <div class="career-body">
+                    <div class="career-top">
+                        <div class="career-company">MBC · 보도국 뉴미디어 뉴스 편집부</div>
+                    </div>
+                    <div class="career-dept">뉴스 콘텐츠 편집 및 포털 업로드 운영 담당</div>
+                    <div class="career-cols">
+                        <div>
+                            <div class="career-block-title">주요 업무</div>
+                            <ul class="career-ul">
+                                <li>라디오 뉴스 편집 및 파일 검수</li>
+                                <li>5시뉴스, 뉴스데스크 실시간 송출 모니터링 및 파일 검수</li>
+                                <li>주요 뉴스 콘텐츠 포털 업로드</li>
+                                <li>콘텐츠 제목·설명 작성 및 정보 배열 관리</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="career-block-title">기여</div>
+                            <ul class="career-ul">
+                                <li>콘텐츠 전달 구조 및 플랫폼 노출 방식 이해</li>
+                                <li>정보 정확성 검수를 통한 서비스 신뢰도 유지 경험 축적</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="career-entry fade-in">
+                <div class="career-dot-wrap">
+                    <div class="career-dot">🎞️</div>
+                </div>
+                <div class="career-body">
+                    <div class="career-top">
+                        <div class="career-company">기타 현장 경험</div>
+                    </div>
+                    <div class="career-dept">영화·드라마 현장 참여</div>
+                    <ul class="career-ul">
+                        <li>영화 데이터매니저 업무 수행 (데이터 백업 및 관리)</li>
+                        <li>KBS2 수목드라마 '슈츠' 동시녹음 B팀</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
     <!-- Projects -->
     <section id="projects">
         <div class="section-header fade-in">
             <span class="section-label">Projects</span>
             <h2 class="section-title">작업물</h2>
-            <p class="section-desc">직접 기획하고 제작한 작업물입니다</p>
+            <p class="section-desc">AI 기반으로 직접 기획하고 제작한 영상 작업물입니다</p>
         </div>
         <div class="projects-grid" id="projects-grid">
 
@@ -891,7 +1175,7 @@
                 <div class="project-info">
                     <div class="project-category">AI-Generated</div>
                     <h3>궁극의 크리스피 행성 CM송</h3>
-                    <p>AI로 작사·작곡한 '후라이드 참 잘하는 집' CM송. 브랜드의 감성을 힙합으로 표현했습니다.</p>
+                    <p>AI로 작사·작곡한 '후라이드 참 잘하는 집' CM송. 브랜드의 감성을 음악으로 표현했습니다.</p>
                     <div class="project-url-area">
                         <div class="skill-tags" style="margin-top:0;">
                             <span class="skill-tag">ChatGPT</span>
@@ -949,31 +1233,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- 6 -->
-            <div class="project-card fade-in">
-                <div class="project-thumb thumb-dark-1">
-                    <div class="project-thumb-icon">📈</div>
-                    <a class="project-video-overlay" href="./assets/kospi/3_html/kospi_daily_update.html" target="_blank">
-                        <span class="play-btn">🔍</span>
-                    </a>
-                </div>
-                <div class="project-info">
-                    <div class="project-category">Web Development</div>
-                    <h3>KOSPI Daily Update Dashboard</h3>
-                    <p>코스피 시장 동향, 주요 뉴스 및 투자 인사이트를 시각화한 반응형 대시보드입니다.</p>
-                    <div class="project-url-area">
-                        <div class="skill-tags" style="margin-top:0;">
-                            <span class="skill-tag">HTML</span>
-                            <span class="skill-tag">CSS</span>
-                            <span class="skill-tag">JavaScript</span>
-                        </div>
-                        <a href="./assets/kospi/3_html/kospi_daily_update.html" target="_blank" class="project-saved-link"
-                            style="margin-top:12px; display:inline-flex;">🔍 페이지 보기</a>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
